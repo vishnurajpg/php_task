@@ -35,7 +35,7 @@
                 }else{
                     echo "connect success";
                 }
-                $query ='SELECT * FROM list';
+                $query ='SELECT * FROM list LIMIT 3';
 
                 $merge =mysqli_query($con,$query);
 
@@ -44,8 +44,8 @@
                
 
                 if($check >0){
-                    for($i=0; $i<3; $i++){
-                    $inside= mysqli_fetch_array($merge);
+                  
+                    while($inside= mysqli_fetch_array($merge)){
                             echo  "<tr><td>".$inside["id"]."</td><td>".$inside["name"]."</td> <td>".$inside["contact"]."</td><td>".$inside["address"]."</td></tr>";
                     }
                 }
